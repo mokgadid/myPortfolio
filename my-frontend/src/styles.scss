@@ -1,15 +1,15 @@
 /* Global theme and base styles */
 
 :root {
-  /* Theme: Rose & Red */
-  --bg: #120b0d; /* deep rose-black */
-  --panel: #1a0f12; /* dark rose */
-  --muted: #b49aa1; /* desaturated rose-gray */
-  --text: #f7ecef; /* near-white with rose tint */
-  --accent: #fb7185; /* rose-400 */
-  --accent-2: #ef4444; /* red-500 */
-  --border: #30141a; /* deep rose border */
-  --card: #140a0d; /* darker panel */
+  /* Theme: Indigo & Pink (Light) */
+  --bg: #f8fafc; /* slate-50 */
+  --panel: #ffffff; /* white */
+  --muted: #475569; /* slate-600 */
+  --text: #0f172a; /* slate-900 */
+  --accent: #6366f1; /* indigo-500 */
+  --accent-2: #ec4899; /* pink-500 */
+  --border: #e2e8f0; /* slate-200 */
+  --card: #ffffff; /* white */
 }
 
 /* CSS reset-ish */
@@ -25,7 +25,7 @@ body {
 .container { width: min(1100px, 92%); margin-inline: auto; }
 
 /* Global header & footer (sticky header) */
-.site-header { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--panel) 85%, transparent); backdrop-filter: saturate(1.15) blur(10px); border-bottom: 1px solid var(--border); }
+.site-header { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--panel) 95%, transparent); backdrop-filter: saturate(1.15) blur(10px); border-bottom: 1px solid var(--border); }
 .header-content { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
 .branding { display: flex; align-items: center; gap: 12px; }
 .avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; font-weight: 700; color: #0b1220; }
@@ -40,5 +40,35 @@ body {
 .icon { display: inline-block; width: 18px; text-align: center; }
 
 /* Global footer */
-.site-footer { border-top: 1px solid var(--border); padding: 18px 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,.25)); color: var(--muted); }
+.site-footer { border-top: 1px solid var(--border); padding: 18px 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,.04)); color: var(--muted); }
 
+
+/* Motion & animations */
+:root { --ease: cubic-bezier(.22,.61,.36,1); }
+
+/* Reveal on scroll utilities */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s var(--ease), transform .6s var(--ease); transition-delay: var(--delay, 0ms); will-change: opacity, transform; }
+.reveal-up { transform: translateY(14px); }
+.reveal-fade { transform: none; }
+.reveal-scale { transform: scale(.98); }
+.reveal.in-view { opacity: 1; transform: none; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Hover effects */
+.hover-float { transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease); will-change: transform; }
+.hover-float:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(0,0,0,.12); border-color: color-mix(in srgb, var(--accent) 30%, var(--border)); }
+
+/* Link underline animation utility */
+.underline-anim { position: relative; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100%/0 2px no-repeat; transition: background-size .25s var(--ease); }
+.underline-anim:hover { background-size: 100% 2px; }
+
+/* Button micro-interactions */
+.btn:active { transform: translateY(0) scale(.98); }
+
+/* Avatar playful hover */
+.avatar { transition: transform .25s var(--ease); }
+.avatar:hover { transform: translateY(-1px) rotate(3deg); }
