@@ -1,39 +1,9 @@
-:root {
-  --bg: #0f172a; /* slate-900 */
-  --panel: #111827; /* gray-900 */
-  --muted: #94a3b8; /* slate-400 */
-  --text: #e5e7eb; /* gray-200 */
-  --accent: #38bdf8; /* sky-400 */
-  --accent-2: #a78bfa; /* violet-400 */
-  --border: #1f2937; /* gray-800 */
-  --card: #0b1220; /* darker panel */
-}
+/* Uses global CSS variables defined in src/styles.scss */
 
-* { box-sizing: border-box; }
-
-html, body { height: 100%; }
-
-body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-
-.container { width: min(1100px, 92%); margin-inline: auto; }
-
-/* Header */
-.site-header { position: sticky; top: 0; z-index: 10; background: rgba(15, 23, 42, 0.75); backdrop-filter: saturate(1.2) blur(10px); border-bottom: 1px solid var(--border); }
-.header-content { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-
-.branding { display: flex; align-items: center; gap: 12px; }
-.avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; font-weight: 700; color: #0b1220; }
-.name { margin: 0; font-size: 1.125rem; }
-.role { margin: 2px 0 0; color: var(--muted); font-size: 0.9rem; }
-
-.social { display: flex; gap: 8px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(56, 189, 248, 0.08), rgba(167, 139, 250, 0.08)); color: var(--text); text-decoration: none; font-weight: 600; transition: transform .15s ease, background .2s ease, border-color .2s ease; }
-.btn:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
-.btn.ghost { background: transparent; }
-.icon { display: inline-block; width: 18px; text-align: center; }
+/* Header styles are defined globally in src/styles.scss */
 
 /* Hero */
-.hero { padding: 48px 0 12px; border-bottom: 1px solid var(--border); background: radial-gradient(1200px 400px at 10% -40%, rgba(56,189,248,.15), transparent), radial-gradient(1200px 400px at 90% -40%, rgba(167,139,250,.12), transparent); }
+.hero { padding: 48px 0 12px; border-bottom: 1px solid var(--border); background: radial-gradient(1200px 400px at 10% -40%, color-mix(in srgb, var(--accent) 15%, transparent), transparent), radial-gradient(1200px 400px at 90% -40%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent); }
 .hero h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 6px; }
 .hero .accent { color: var(--accent); }
 .subtitle { color: var(--muted); margin: 0 0 16px; }
@@ -43,23 +13,14 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter,
 .projects { padding: 28px 0 8px; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .section-head h3 { margin: 0; font-size: 1.25rem; }
-.muted { color: var(--muted); }
-
-.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
 .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-
-@media (min-width: 700px) {
-  .card { grid-column: span 6; }
-}
-@media (min-width: 1000px) {
-  .card { grid-column: span 4; }
-}
-
-.thumb { display: block; aspect-ratio: 16/10; overflow: hidden; background: #0a0f1c; }
+@media (min-width: 700px) { .card { grid-column: span 6; } }
+@media (min-width: 1000px) { .card { grid-column: span 4; } }
+.thumb { display: block; width: 100%; aspect-ratio: 4 / 3; max-height: 200px; overflow: hidden; background: #170c0e; border-bottom: 1px solid var(--border); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
+@media (min-width: 900px) { .thumb { max-height: 220px; } }
 .card:hover .thumb img { transform: scale(1.03); }
-
-.card-body { padding: 14px; }
 .card-body h4 { margin: 0 0 6px; font-size: 1.05rem; }
 .card-body p { margin: 0 0 10px; color: #c9d2e1; min-height: 38px; }
 .links { display: flex; gap: 10px; }
@@ -74,8 +35,18 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter,
 .checklist li::before { content: "✔"; position: absolute; left: 0; top: 0; color: var(--accent); }
 .speech { margin: 10px 0 0; color: #cbd5e1; }
 
-/* Footer */
-.site-footer { border-top: 1px solid var(--border); padding: 18px 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,.25)); color: var(--muted); }
+/* Interests & Hobbies */
+.interests { padding: 20px 0 36px; border-top: 1px solid var(--border); }
+.interest-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 800px) { .interest-grid { grid-template-columns: 1fr 1fr; } }
+.interest-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.interest-card h4 { margin: 0 0 8px; font-size: 1.05rem; color: var(--accent); }
+.interest-card p { margin: 0 0 10px; color: #c9d2e1; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent); color: var(--text); font-size: .9rem; }
+.chip .emoji { width: 18px; text-align: center; }
+
+/* Footer styles are defined globally in src/styles.scss */
 
 /* Utilities */
 .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap; }
