@@ -72,3 +72,17 @@
 
 /* Utilities */
 .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap; }
+
+/* Lightbox overlay */
+.lightbox { position: fixed; inset: 0; background: rgba(10, 14, 25, .6); backdrop-filter: blur(4px); display: grid; place-items: center; z-index: 1000; animation: lb-fade .2s var(--ease); }
+.lightbox-inner { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 10px; max-width: min(92vw, 1100px); max-height: min(86vh, 820px); box-shadow: 0 30px 100px rgba(0,0,0,.25); animation: lb-zoom .22s var(--ease); display: grid; gap: 8px; }
+.lightbox-img { width: 100%; height: auto; max-height: 74vh; object-fit: contain; border-radius: 10px; display: block; }
+.lightbox-close { justify-self: end; }
+
+@keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lb-zoom { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox { animation: none; }
+  .lightbox-inner { animation: none; }
+}

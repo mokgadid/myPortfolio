@@ -1,15 +1,35 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TiltDirective } from '../shared/tilt.directive';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [TiltDirective],
+  imports: [CommonModule, TiltDirective],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent implements AfterViewInit {
   year = new Date().getFullYear();
+
+  // Lightbox state
+  lightboxSrc: string | null = null;
+  lightboxAlt: string = '';
+
+  openLightbox(src: string, alt: string = '') {
+    this.lightboxSrc = src;
+    this.lightboxAlt = alt;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox() {
+    this.lightboxSrc = null;
+    this.lightboxAlt = '';
+    document.body.style.overflow = '';
+  }
+
+  @HostListener('document:keydown.escape')
+  onEsc() { if (this.lightboxSrc) this.closeLightbox(); }
 
   ngAfterViewInit(): void {
     // Reveal-on-scroll using IntersectionObserver

@@ -18,6 +18,14 @@
     </div>
   </section>
 
+  <!-- Lightbox -->
+  <div *ngIf="lightboxSrc" class="lightbox" role="dialog" aria-modal="true" (click)="closeLightbox()">
+    <div class="lightbox-inner" (click)="$event.stopPropagation()">
+      <img [src]="lightboxSrc!" [alt]="lightboxAlt" class="lightbox-img" />
+      <button class="lightbox-close btn ghost" type="button" aria-label="Close" (click)="closeLightbox()">Close</button>
+    </div>
+  </div>
+
   <section class="projects">
     <div class="container">
       <div class="section-head">
@@ -29,7 +37,7 @@
         <!-- Project Card 1 -->
         <article class="card hover-float reveal reveal-scale parallax-1" [appTilt]="16" [glare]="true" style="--delay: 0ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 1">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" />
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" (click)="$event.preventDefault(); openLightbox('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop', 'Project 1 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title One</h4>
@@ -40,7 +48,7 @@
 
         <article class="card hover-float reveal reveal-scale" style="--delay: 0ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 1">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" />
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" (click)="$event.preventDefault(); openLightbox('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop', 'Project 1 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title One</h4>
@@ -52,7 +60,7 @@
         <!-- Project Card 2 -->
         <article class="card hover-float reveal reveal-scale parallax-2" [appTilt]="16" [glare]="true" style="--delay: 120ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 2">
-            <img src="https://img.freepik.com/premium-vector/chef-cooking-kitchen-with-pot-food_1323048-66412.jpg" alt="Project 2 preview" />
+            <img src="https://img.freepik.com/premium-vector/chef-cooking-kitchen-with-pot-food_1323048-66412.jpg" alt="Project 2 preview" (click)="$event.preventDefault(); openLightbox('https://img.freepik.com/premium-vector/chef-cooking-kitchen-with-pot-food_1323048-66412.jpg', 'Project 2 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title Two</h4>
@@ -62,7 +70,7 @@
         </article>
         <article class="card hover-float reveal reveal-scale" style="--delay: 120ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 2">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Project 2 preview" />
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Project 2 preview" (click)="$event.preventDefault(); openLightbox('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop', 'Project 2 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title Two</h4>
@@ -74,7 +82,7 @@
         <!-- Project Card 3 -->
         <article class="card hover-float reveal reveal-scale parallax-3" [appTilt]="16" [glare]="true" style="--delay: 240ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" />
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" (click)="$event.preventDefault(); openLightbox('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop', 'Project 3 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title Three</h4>
@@ -85,7 +93,7 @@
 
         <article class="card hover-float reveal reveal-scale" style="--delay: 240ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" />
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" (click)="$event.preventDefault(); openLightbox('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop', 'Project 3 preview')" />
           </a>
           <div class="card-body">
             <h4>Project Title Three</h4>
