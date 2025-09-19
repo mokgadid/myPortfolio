@@ -1,10 +1,19 @@
 <main>
   <section class="hero">
     <div class="container">
-      <h2 class="reveal reveal-up" style="--delay: 0ms;">Hi, I’m <span class="accent">Dineo Moteketela</span>.</h2>
-      <p class="subtitle reveal reveal-up" style="--delay: 120ms;">I build clean, modern, and accessible WEB APPLICATIONS</p>
+      <h2 class="reveal reveal-up" style="--delay: 0ms;">Hi, I’m <span class="accent text-gradient-anim">Dineo Moteketela</span>.</h2>
+      <p class="subtitle reveal reveal-up" style="--delay: 120ms;">I build 
+        <span class="text-rotate">
+          <span class="words">
+            <span class="word accented">Web Applications</span>
+            <span class="word">APIs</span>
+            <span class="word">Dashboards</span>
+            <span class="word">User Interfaces</span>
+          </span>
+        </span><span class="cursor-blink"></span>
+      </p>
       <p class="blurb reveal reveal-fade" style="--delay: 240ms;">
-        Here is a simple preview of my work and background. This project is kept intentionally minimal using only HTML and CSS so you can see the vision clearly.
+        Here is a simple preview of my work and background. This project is buildusing  HTML and CSS/tailwindcss ,MongoDB,Node.js,Angular, so you can see the vision clearly.
       </p>
     </div>
   </section>
@@ -12,12 +21,23 @@
   <section class="projects">
     <div class="container">
       <div class="section-head">
-        <h3>Selected Project</h3>
+        <h3 class="text-gradient-anim underline-loop">Selected Project</h3>
         <!-- <p class="muted">Paste screenshots of your projects below. Each card can link to a live demo or repository.</p> -->
       </div>
 
       <div class="grid">
         <!-- Project Card 1 -->
+        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 0ms;">
+          <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 1">
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" />
+          </a>
+          <div class="card-body">
+            <h4>Project Title One</h4>
+            <p>A short one-liner about what this project does and what you contributed.</p>
+            
+          </div>
+        </article>
+
         <article class="card hover-float reveal reveal-scale" style="--delay: 0ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 1">
             <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" />
@@ -30,6 +50,16 @@
         </article>
 
         <!-- Project Card 2 -->
+        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 120ms;">
+          <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 2">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Project 2 preview" />
+          </a>
+          <div class="card-body">
+            <h4>Project Title Two</h4>
+            <p>Keep it simple and focused on outcomes. Mention tech used if helpful.</p>
+           
+          </div>
+        </article>
         <article class="card hover-float reveal reveal-scale" style="--delay: 120ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 2">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Project 2 preview" />
@@ -42,6 +72,17 @@
         </article>
 
         <!-- Project Card 3 -->
+        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 240ms;">
+          <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" />
+          </a>
+          <div class="card-body">
+            <h4>Project Title Three</h4>
+            <p>Another short description. Replace the image with your own screenshot later.</p>
+           
+          </div>
+        </article>
+
         <article class="card hover-float reveal reveal-scale" style="--delay: 240ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3">
             <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" />
@@ -83,22 +124,22 @@
   <section class="interests" aria-labelledby="interests-title">
     <div class="container">
       <div class="section-head reveal reveal-up" style="--delay: 0ms;">
-        <h3 id="interests-title">Interests & Hobbies</h3>
+        <h3 id="interests-title" class="text-gradient-anim underline-loop">Interests & Hobbies</h3>
         <p class="muted">A few things I enjoy outside of coding.</p>
       </div>
 
       <div class="interest-grid">
-        <article class="interest-card hover-float reveal reveal-scale" style="--delay: 120ms;">
+        <article class="interest-card hover-float reveal reveal-scale" [appTilt]="6" style="--delay: 120ms;">
           <h4>Favorite Things To Do</h4>
-          <p>I love building side projects, learning new web technologies, and contributing to communities.</p>
+          <p>i lovr playing sports for it clears my mind and gets me ready to start</p>
           <div class="chips">
-            <span class="chip"><span class="emoji">💡</span> Side Projects</span>
-            <span class="chip"><span class="emoji">📚</span> Continuous Learning</span>
-            <span class="chip"><span class="emoji">🤝</span> Community</span>
+            <span class="chip pulse-anim"><span class="emoji">💡</span> Basket ball</span>
+            <span class="chip pulse-anim"><span class="emoji">📚</span> Tennis</span>
+            <span class="chip pulse-anim"><span class="emoji">🤝</span>Netball</span>
           </div>
         </article>
 
-        <article class="interest-card hover-float reveal reveal-scale" style="--delay: 240ms;">
+        <article class="interest-card hover-float reveal reveal-scale" [appTilt]="6" style="--delay: 240ms;">
           <h4>Hobbies</h4>
           <p>When I’m not coding, I enjoy exploring UI/UX, reading, and listening to good music.</p>
           <div class="chips">
