@@ -19,6 +19,7 @@ export class AppComponent {
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight || 1;
     const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
     document.documentElement.style.setProperty('--scroll-progress', progress + '%');
+    document.documentElement.style.setProperty('--scroll-progress-num', `${progress}`);
     this.isShrunk = scrollTop > 24;
   }
 }

@@ -24,7 +24,7 @@
 .section-head h3 { margin: 0; font-size: 1.25rem; }
 .section-head::after { content: ""; flex: 1 1 auto; height: 2px; margin-left: 12px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 2px; opacity: .6; }
 .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
-.card { position: relative; grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); perspective: 800px; }
+.card { position: relative; grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); perspective: 800px; will-change: transform; }
 .card::before { content: ""; position: absolute; inset: 0; border-radius: 14px; padding: 1px; background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--accent-2) 55%, transparent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: gradientFlow 6s linear infinite; pointer-events: none; }
 @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 @media (min-width: 700px) { .card { grid-column: span 6; } }
@@ -33,6 +33,9 @@
 .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); transform-origin: center; display: block; will-change: transform; }
 @media (min-width: 900px) { .thumb { max-height: 220px; } }
 .card:hover .thumb img { transform: translateZ(22px) scale(1.06); }
+.parallax-1 { transform: translateY(calc(var(--scroll-progress-num, 0) * .12px)); }
+.parallax-2 { transform: translateY(calc(var(--scroll-progress-num, 0) * -.09px)); }
+.parallax-3 { transform: translateY(calc(var(--scroll-progress-num, 0) * .06px)); }
 .card-body h4 { margin: 0 0 6px; font-size: 1.05rem; }
 .card-body p { margin: 0 0 10px; color: var(--muted); min-height: 38px; }
 .links { display: flex; gap: 10px; }
@@ -54,6 +57,11 @@
 .interest-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 .interest-card { position: relative; }
 .interest-card::before { content: ""; position: absolute; inset: 0; border-radius: 12px; padding: 1px; background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 45%, transparent), color-mix(in srgb, var(--accent-2) 45%, transparent)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: gradientFlow 8s linear infinite; pointer-events: none; }
+.flip { perspective: 1000px; }
+.flip-inner { position: relative; transform-style: preserve-3d; transition: transform .6s var(--ease); }
+.flip:hover .flip-inner, .flip.flipped .flip-inner { transform: rotateY(180deg); }
+.face { backface-visibility: hidden; }
+.face.back { position: absolute; inset: 0; transform: rotateY(180deg); }
 .interest-card h4 { margin: 0 0 8px; font-size: 1.05rem; color: var(--accent); }
 .interest-card p { margin: 0 0 10px; color: #c9d2e1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }

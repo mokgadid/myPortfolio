@@ -1,7 +1,7 @@
 <main>
   <section class="hero">
     <div class="container">
-      <h2 class="reveal reveal-up" style="--delay: 0ms;">Hi, I’m <span class="accent text-gradient-anim">Dineo Moteketela</span>.</h2>
+      <h2 class="reveal reveal-up text-3d float-y" style="--delay: 0ms;">Hi, I’m <span class="accent text-gradient-anim">Dineo Moteketela</span>.</h2>
       <p class="subtitle reveal reveal-up" style="--delay: 120ms;">I build 
         <span class="text-rotate">
           <span class="words">
@@ -27,7 +27,7 @@
 
       <div class="grid">
         <!-- Project Card 1 -->
-        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 0ms;">
+        <article class="card hover-float reveal reveal-scale parallax-1" [appTilt]="16" [glare]="true" style="--delay: 0ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 1">
             <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop" alt="Project 1 preview" />
           </a>
@@ -50,7 +50,7 @@
         </article>
 
         <!-- Project Card 2 -->
-        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 120ms;">
+        <article class="card hover-float reveal reveal-scale parallax-2" [appTilt]="16" [glare]="true" style="--delay: 120ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 2">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Project 2 preview" />
           </a>
@@ -72,7 +72,7 @@
         </article>
 
         <!-- Project Card 3 -->
-        <article class="card hover-float reveal reveal-scale" [appTilt]="10" style="--delay: 240ms;">
+        <article class="card hover-float reveal reveal-scale parallax-3" [appTilt]="16" [glare]="true" style="--delay: 240ms;">
           <a class="thumb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3">
             <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Project 3 preview" />
           </a>
@@ -129,23 +129,39 @@
       </div>
 
       <div class="interest-grid">
-        <article class="interest-card hover-float reveal reveal-scale" [appTilt]="6" style="--delay: 120ms;">
-          <h4>Favorite Things To Do</h4>
-          <p>i lovr playing sports for it clears my mind and gets me ready to start</p>
-          <div class="chips">
-            <span class="chip pulse-anim"><span class="emoji">💡</span> Basket ball</span>
-            <span class="chip pulse-anim"><span class="emoji">📚</span> Tennis</span>
-            <span class="chip pulse-anim"><span class="emoji">🤝</span>Netball</span>
+        <article class="interest-card hover-float reveal reveal-scale flip" [appTilt]="10" [glare]="true" style="--delay: 120ms;">
+          <div class="flip-inner">
+            <div class="face front">
+              <h4>Favorite Things To Do</h4>
+              <p>i lovr playing sports for it clears my mind and gets me ready to start</p>
+              <div class="chips">
+                <span class="chip pulse-anim"><span class="emoji">💡</span> Basket ball</span>
+                <span class="chip pulse-anim"><span class="emoji">📚</span> Tennis</span>
+                <span class="chip pulse-anim"><span class="emoji">🤝</span>Netball</span>
+              </div>
+            </div>
+            <div class="face back">
+              <h4>Why I love it</h4>
+              <p class="muted">Sports keep me focused, healthy, and energized. Team play teaches discipline and collaboration.</p>
+            </div>
           </div>
         </article>
 
-        <article class="interest-card hover-float reveal reveal-scale" [appTilt]="6" style="--delay: 240ms;">
-          <h4>Hobbies</h4>
-          <p>When I’m not coding, I enjoy exploring UI/UX, reading, and listening to good music.</p>
-          <div class="chips">
-            <span class="chip"><span class="emoji">🎨</span> UI/UX</span>
-            <span class="chip"><span class="emoji">📖</span> Reading</span>
-            <span class="chip"><span class="emoji">🎵</span> Music</span>
+        <article class="interest-card hover-float reveal reveal-scale flip" [appTilt]="10" [glare]="true" style="--delay: 240ms;">
+          <div class="flip-inner">
+            <div class="face front">
+              <h4>Hobbies</h4>
+              <p>When I’m not coding, I enjoy exploring UI/UX, reading, and listening to good music.</p>
+              <div class="chips">
+                <span class="chip"><span class="emoji">🎨</span> UI/UX</span>
+                <span class="chip"><span class="emoji">📖</span> Reading</span>
+                <span class="chip"><span class="emoji">🎵</span> Music</span>
+              </div>
+            </div>
+            <div class="face back">
+              <h4>Inspiration</h4>
+              <p class="muted">Design and books inspire my projects, while music keeps me in flow.</p>
+            </div>
           </div>
         </article>
       </div>

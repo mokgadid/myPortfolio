@@ -62,5 +62,13 @@ export class PortfolioComponent implements AfterViewInit {
       hero.addEventListener('mousemove', onMove);
       hero.addEventListener('mouseleave', onLeave);
     }
+
+    // Click-to-flip for interest cards
+    const flips = document.querySelectorAll<HTMLElement>('.flip');
+    flips.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
   }
 }
