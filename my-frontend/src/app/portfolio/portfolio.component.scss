@@ -33,6 +33,38 @@
 .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); transform-origin: center; display: block; will-change: transform; }
 @media (min-width: 900px) { .thumb { max-height: 220px; } }
 .card:hover .thumb img { transform: translateZ(22px) scale(1.06); }
+.card.float-anim .thumb img { animation: floatY 4.8s ease-in-out infinite, sway 6.4s ease-in-out infinite; }
+@keyframes floatY {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-16px) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes sway {
+  0% { transform: rotate(-0.8deg); }
+  50% { transform: rotate(0.8deg); }
+  100% { transform: rotate(0deg); }
+}
+/* Stagger floating start times for a wave effect */
+.grid .card.float-anim:nth-child(2) .thumb img { animation-delay: .24s; }
+.grid .card.float-anim:nth-child(3) .thumb img { animation-delay: .48s; }
+.grid .card.float-anim:nth-child(4) .thumb img { animation-delay: .72s; }
+.grid .card.float-anim:nth-child(5) .thumb img { animation-delay: .96s; }
+.grid .card.float-anim:nth-child(6) .thumb img { animation-delay: 1.2s; }
+/* Make the float a touch snappier on hover */
+.card.float-anim:hover .thumb img { animation-duration: 3.6s; }
+
+/* Hover glow effect for cards */
+.card.hover-glow { transition: box-shadow .35s var(--ease), transform .35s var(--ease); }
+.card.hover-glow:hover { box-shadow: 0 16px 60px rgba(80,140,255,.28), 0 4px 18px rgba(80,140,255,.18); transform: translateY(-2px); }
+
+/* Shimmer text utility */
+.shimmer {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--text) 60%, transparent), var(--accent), color-mix(in srgb, var(--text) 60%, transparent));
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmerMove 2.2s linear infinite;
+}
+@keyframes shimmerMove { 0% { background-position: 200% 0; } 100% { background-position: 0% 0; } }
 .parallax-1 { transform: translateY(calc(var(--scroll-progress-num, 0) * .12px)); }
 .parallax-2 { transform: translateY(calc(var(--scroll-progress-num, 0) * -.09px)); }
 .parallax-3 { transform: translateY(calc(var(--scroll-progress-num, 0) * .06px)); }
@@ -85,4 +117,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lightbox { animation: none; }
   .lightbox-inner { animation: none; }
+  .card.float-anim .thumb img { animation: none; }
+  .card.hover-glow { transition: none; }
+  .shimmer { animation: none; background: none; color: var(--text); }
 }

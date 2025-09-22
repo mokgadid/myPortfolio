@@ -41,12 +41,16 @@ export class PortfolioComponent implements AfterViewInit {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+        const el = entry.target as HTMLElement;
+        const ratio = entry.intersectionRatio;
+        if (ratio >= 0.35) {
+          el.classList.add('in-view');
+        } else if (ratio === 0) {
+          // Only remove once the element is fully out of view
+          el.classList.remove('in-view');
         }
       });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    }, { root: null, rootMargin: '0px', threshold: [0, 0.35] });
 
     elements.forEach(el => observer.observe(el));
 
